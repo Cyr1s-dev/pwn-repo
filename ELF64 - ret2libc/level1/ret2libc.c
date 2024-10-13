@@ -7,13 +7,14 @@ void init()
 	setvbuf(stderr,0,2,0);
 }
 
-void magic() {
-    __asm__("pop %rdi");
+void gadget() {
+    __asm__("pop %rdi;ret");
 }
 
 void vuln()
 {
 	char buf[100];
+	puts("RET2LIBC >_<");
 	gets(buf);
 }
 
