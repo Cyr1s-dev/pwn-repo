@@ -4,24 +4,22 @@
 #include <stdlib.h>
 #include "magic.pb-c.h" // 根据 message.proto 生成的头文件
 
-#define BUFFER_SIZE 64 // buf缓冲区大小
-#define PROTO_BUF_SIZE 0x1010 // protobuf数据缓冲区大小
+#define BUFFER_SIZE 64 
+#define PROTO_BUF_SIZE 0x1010 
 
-// 初始化函数
 void init() {
     setvbuf(stdout, NULL, _IONBF, 0);
     setvbuf(stdin, NULL, _IONBF, 0);
     setvbuf(stderr, NULL, _IONBF, 0);
 }
 
-// 后门函数
 void backdoor() {
     system("/bin/sh");
 }
 
 int main() {
     char buf[BUFFER_SIZE];
-    char proto_buf[PROTO_BUF_SIZE];  // 使用堆而不是栈
+    char proto_buf[PROTO_BUF_SIZE];
 
     init(); 
     
@@ -40,9 +38,9 @@ int main() {
     }
 
     // 将magic_content写入buf变量中
-    if (magic_message->magic_content.data != NULL) {  // 修改：检查data字段
-        memcpy(buf, magic_message->magic_content.data,   // 修改：使用data字段
-               magic_message->magic_content.len);         // 修改：使用len字段
+    if (magic_message->magic_content.data != NULL) {
+        memcpy(buf, magic_message->magic_content.data,
+               magic_message->magic_content.len);
         printf("Content copied to buf: %s\n", buf);
     } else {
         puts("No content found in Protobuf message!");
