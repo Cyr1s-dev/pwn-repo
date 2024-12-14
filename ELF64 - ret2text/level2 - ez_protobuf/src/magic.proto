@@ -1,0 +1,9 @@
+syntax = "proto2";
+
+package magic;
+
+message Message {
+    required string magic_type = 1;
+    optional bytes magic_content = 2;
+	required uint32 spell_size = 3;
+}
