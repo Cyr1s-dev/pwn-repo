@@ -1,5 +1,9 @@
 # Basic Buffer Overflow
 
+### ELF32 - BOF
+
+- [level1 - ez_bof](https://github.com/Cyr1s-dev/pwn-repo/tree/main/ELF32%20-%20BOF/level1%20-%20ez_bof)
+
 ### ELF64 - ret2text
 
 - [level1 - ez_ret2text](https://github.com/Cyr1s-dev/pwn-repo/tree/main/ELF64%20-%20ret2text/level1%20-%20ez_ret2text)
