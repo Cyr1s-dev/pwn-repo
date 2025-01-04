@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 
 void init()
 {
@@ -14,9 +15,9 @@ void gadget()
 
 void vuln()
 {
-    char buf[0x40];
+    char buf[0x30];
     puts("Do you know Stack_Pivoting?");
-    read(0, buf, 0x50); 
+    read(0, buf, 0x40); 
 }
 
 int main()
