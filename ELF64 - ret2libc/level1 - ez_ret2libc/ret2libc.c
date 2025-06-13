@@ -13,9 +13,10 @@ void gadget() {
 
 void vuln()
 {
-	char buf[100];
+	char buf[0x50];
 	puts("RET2LIBC >_<");
-	gets(buf);
+	read(0, buf, 0x80);
+	return;
 }
 
 int main()
